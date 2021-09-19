@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./landing-page.scss";
+@import "../fonts/fonts.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.full-vh {
+  height: 100vh;
+}
+
+.align-justify-center {
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  color: #fafafa;
+  background: #0d0c16;
+}
+
+h1 {
+  font-family: "Montserrat";
+  font-weight: 600;
+}
