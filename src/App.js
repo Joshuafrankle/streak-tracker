@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <LoginRoute exact path="/" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
         <Route exact path="/404" component={Error404} />
         <Redirect to="/404" />
       </Switch>
