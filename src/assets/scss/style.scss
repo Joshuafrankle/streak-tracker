@@ -22,7 +22,13 @@ body {
   background: #0d0c16;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   font-family: "Montserrat";
   font-weight: 600;
+}
+
+p {
+  font-family: "Poppins";
 }
