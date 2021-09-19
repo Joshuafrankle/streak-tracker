@@ -5,7 +5,6 @@ import StreakCard from "../components/StreakCard";
 
 export default function LandingPage() {
   const [streakCard, setStreakCard] = useState([]);
-  const [num, setNum] = useState(0);
 
   function handleAdd() {
     setStreakCard((prev) => [...prev, <StreakCard />]);
@@ -13,24 +12,26 @@ export default function LandingPage() {
 
   return (
     <>
-      <section className="landing-main">
-        <h1 className="streak-text">Streak Tracker</h1>
+      <section className="heading">
+        <h1 className="streak-text">STREAK TRACKER</h1>
       </section>
 
-      <section className="streak-cards mt-5">
+      <section className="longest-streak my-5">
+        <div className="text-center">
+          <h2>Streak Record</h2>
+          <h3>Longest Streak is 0 for something</h3>
+        </div>
+        <div className="streak-record d-flex">
+          <h3 className="text-muted">Smallville: 0</h3>
+        </div>
+      </section>
+
+      <section className="streak-cards my-5">
         {streakCard.length > 0 ? streakCard : <p>Nothing</p>}
       </section>
 
-      <section className="longest-streak">
-        <h2 className="text-center">Streak Record</h2>
-        <div className="streak-record d-flex">
-          <h3>Smallville: {num}</h3>
-        </div>
-        <h2 className="text-center">Longest Streak {num} for something</h2>
-      </section>
-
-      <section className="">
-        <div className="ml-auto">
+      <section className="mx-2">
+        <div className="d-flex justify-content-end">
           <Fab color="secondary" aria-label="add" onClick={handleAdd}>
             <AddIcon />
           </Fab>

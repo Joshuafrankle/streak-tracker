@@ -1,4 +1,4 @@
-.landing-main {
+.heading {
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -19,13 +19,6 @@
 .btn-section > * {
   margin-left: 30px !important;
   margin-right: 30px !important;
-}
-
-.longest-streak {
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 .streak-cards,
