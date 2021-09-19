@@ -1,9 +1,3 @@
-.heading {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 .streak-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));

@@ -12,7 +12,7 @@ export default function LandingPage() {
 
   return (
     <>
-      <section className="heading">
+      <section className="d-flex justify-content-center mt-3">
         <h1 className="streak-text">STREAK TRACKER</h1>
       </section>
 
