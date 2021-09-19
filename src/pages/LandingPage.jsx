@@ -2,8 +2,13 @@ import { useState } from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import StreakCard from "../components/StreakCard";
+import { Button, Modal } from "react-bootstrap";
 
 export default function LandingPage() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [streakCard, setStreakCard] = useState([]);
 
   function handleAdd() {
@@ -27,16 +32,39 @@ export default function LandingPage() {
       </section>
 
       <section className="streak-cards m-5">
-        {streakCard.length > 0 ? streakCard : <p>Nothing</p>}
+        {streakCard.length > 0 ? (
+          streakCard
+        ) : (
+          <p>You do not have any streaks yet!</p>
+        )}
       </section>
 
       <section className="mx-2">
         <div className="d-flex justify-content-end">
-          <Fab color="secondary" aria-label="add" onClick={handleAdd}>
+          <Fab color="secondary" aria-label="add" onClick={handleShow}>
             <AddIcon />
           </Fab>
         </div>
       </section>
+
+      <div>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header>
+            <Modal.Title>Type your streak name</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <input type="text" id="" />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Submit
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     </>
   );
 }
