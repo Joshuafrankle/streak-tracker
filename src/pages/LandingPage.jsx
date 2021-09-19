@@ -12,7 +12,9 @@ export default function LandingPage() {
   const [streakCard, setStreakCard] = useState([]);
 
   function handleAdd() {
-    setStreakCard((prev) => [...prev, <StreakCard />]);
+    const streakName = document.getElementById("streak-name").value;
+    setStreakCard((prev) => [...prev, <StreakCard name={streakName} />]);
+    handleClose();
   }
 
   return (
@@ -53,13 +55,13 @@ export default function LandingPage() {
             <Modal.Title>Type your streak name</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input type="text" id="" />
+            <input type="text" id="streak-name" />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleAdd}>
               Submit
             </Button>
           </Modal.Footer>
