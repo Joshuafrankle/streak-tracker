@@ -16,17 +16,17 @@ export default function LandingPage() {
         <h1 className="streak-text">STREAK TRACKER</h1>
       </section>
 
-      <section className="longest-streak my-5">
+      <section className="longest-streak m-5">
         <div className="text-center">
           <h2>Streak Record</h2>
           <h3>Longest Streak is 0 for something</h3>
         </div>
-        <div className="streak-record d-flex">
+        <div className="d-flex">
           <h3 className="text-muted">Smallville: 0</h3>
         </div>
       </section>
 
-      <section className="streak-cards my-5">
+      <section className="streak-cards m-5">
         {streakCard.length > 0 ? streakCard : <p>Nothing</p>}
       </section>
 
