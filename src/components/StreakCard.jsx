@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
 
-export default function StreakCard({ key, name }) {
-  const [num, setNum] = useState(0);
+export default function StreakCard({ keyy, name, count }) {
+  const [num, setNum] = useState(count);
 
   function handleIncrement() {
     setNum((prevNum) => prevNum + 1);
@@ -13,9 +13,10 @@ export default function StreakCard({ key, name }) {
   function handleReset() {
     setNum(0);
   }
+
   return (
     <>
-      <section key={key}>
+      <section key={keyy} id={keyy}>
         <div className="streak-card text-center">
           <h1>{name}</h1>
           <h1 className="mb-4">{num}</h1>

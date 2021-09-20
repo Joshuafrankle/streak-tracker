@@ -1,19 +1,27 @@
 import { useState } from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import StreakCard from "../components/StreakCard";
 import { Button, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addStreak } from "../redux/streakSlice";
+import StreakCard from "../components/StreakCard";
+import StreakRec from "./StreakRec";
 
 export default function LandingPage() {
+  const dispatch = useDispatch();
+
+  const streaks = useSelector((state) => state.streak);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [streakCard, setStreakCard] = useState([]);
-
   function handleAdd() {
-    const streakName = document.getElementById("streak-name").value;
-    setStreakCard((prev) => [...prev, <StreakCard name={streakName} />]);
+    let streakName = document.getElementById("streak-name").value;
+    streakName = streakName.trim();
+    if (streakName !== "" && streakName !== null) {
+      dispatch(addStreak({ title: streakName, streakCount: 2 }));
+    }
     handleClose();
   }
 
@@ -23,22 +31,16 @@ export default function LandingPage() {
         <h1 className="streak-text">STREAK TRACKER</h1>
       </section>
 
-      <section className="longest-streak m-5">
-        <div className="text-center">
-          <h2>Streak Record</h2>
-          <h3>Longest Streak is 0 for something</h3>
-        </div>
-        <div className="d-flex">
-          <h3 className="text-muted">Smallville: 0</h3>
-        </div>
-      </section>
+      <StreakRec />
 
       <section className="streak-cards m-5">
-        {streakCard.length > 0 ? (
-          streakCard
-        ) : (
-          <p>You do not have any streaks yet!</p>
-        )}
+        {streaks.map((streak) => (
+          <StreakCard
+            keyy={streak.id}
+            name={streak.title}
+            count={streak.streakCount}
+          />
+        ))}
       </section>
 
       <section className="mx-2">
