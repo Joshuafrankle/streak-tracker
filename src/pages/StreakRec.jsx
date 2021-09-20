@@ -15,21 +15,21 @@ export default function StreakRec() {
 
   return (
     <>
-      <section className="longest-streak m-5">
+      <section className="m-5">
         <div className="text-center">
           <h2>Streak Record</h2>
           <h3>
             Longest Streak is {largestStreak} for {largestStreakTitle}
           </h3>
         </div>
-        <div className="d-flex record-list mt-5">
+        <div className="mt-5 d-flex">
           {streaks.map((streak) => (
-            <>
-              <h3 className="text-muted" key={streak.id}>
+            <div className="d-flex record-list" key={streak.id}>
+              <h3 className="text-muted">
                 {streak.title}: {streak.streakCount}
               </h3>
               <p className="mt-1">&bull;</p>
-            </>
+            </div>
           ))}
         </div>
         <Divider />
