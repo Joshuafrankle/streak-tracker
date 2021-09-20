@@ -35,11 +35,13 @@ export default function LandingPage() {
 
       <section className="streak-cards m-5">
         {streaks.map((streak) => (
-          <StreakCard
-            keyy={streak.id}
-            name={streak.title}
-            count={streak.streakCount}
-          />
+          <div key={streak.id}>
+            <StreakCard
+              id={streak.id}
+              name={streak.title}
+              count={streak.streakCount}
+            />
+          </div>
         ))}
       </section>
 
