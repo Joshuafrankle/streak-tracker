@@ -17,7 +17,7 @@ export default function LandingPage() {
   const handleShow = () => setShow(true);
 
   function handleAdd() {
-    let streakName = document.getElementById("streak-name").value;
+    let streakName = document.getElementById("streak_name").value;
     streakName = streakName.trim();
     if (streakName !== "" && streakName !== null) {
       dispatch(addStreak({ title: streakName, streakCount: 0 }));
@@ -57,7 +57,7 @@ export default function LandingPage() {
             <Modal.Title>Type your streak name</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <input type="text" id="streak-name" />
+            <input type="text" id="streak_name" />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
