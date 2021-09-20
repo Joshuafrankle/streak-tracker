@@ -25,7 +25,7 @@ export default function StreakRec() {
         <div className="d-flex record-list mt-5">
           {streaks.map((streak) => (
             <>
-              <h3 className="text-muted">
+              <h3 className="text-muted" key={streak.id}>
                 {streak.title}: {streak.streakCount}
               </h3>
               <p className="mt-1">&bull;</p>
