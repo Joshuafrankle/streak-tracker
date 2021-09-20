@@ -6,33 +6,33 @@ import {
 } from "../redux/streakSlice";
 import { useDispatch } from "react-redux";
 
-export default function StreakCard({ keyy, name, count }) {
+export default function StreakCard({ id, name, count }) {
   const dispatch = useDispatch();
 
-  function handleIncrement(id) {
-    dispatch(increaseStreak(id));
+  function handleIncrement(send_id) {
+    dispatch(increaseStreak(send_id));
   }
-  function handleDecrement(id) {
-    dispatch(decreaseStreak(id));
+  function handleDecrement(send_id) {
+    dispatch(decreaseStreak(send_id));
   }
-  function handleReset(id) {
-    dispatch(resetStreak(id));
+  function handleReset(send_id) {
+    dispatch(resetStreak(send_id));
   }
 
   return (
     <>
-      <section key={keyy}>
+      <section>
         <div className="streak-card text-center">
           <h1>{name}</h1>
           <h1 className="mb-4">{count}</h1>
           <div className="btn-section">
-            <Button variant="contained" onClick={() => handleReset(keyy)}>
+            <Button variant="contained" onClick={() => handleReset(id)}>
               &#x21bb;
             </Button>
-            <Button variant="contained" onClick={() => handleIncrement(keyy)}>
+            <Button variant="contained" onClick={() => handleIncrement(id)}>
               +
             </Button>
-            <Button variant="contained" onClick={() => handleDecrement(keyy)}>
+            <Button variant="contained" onClick={() => handleDecrement(id)}>
               -
             </Button>
           </div>
