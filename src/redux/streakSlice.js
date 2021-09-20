@@ -14,6 +14,7 @@ const streakSlice = createSlice({
       streakCount: 3,
     },
   ],
+
   reducers: {
     addStreak: (state, action) => {
       const newStreak = {
