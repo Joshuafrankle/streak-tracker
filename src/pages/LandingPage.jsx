@@ -20,7 +20,7 @@ export default function LandingPage() {
     let streakName = document.getElementById("streak-name").value;
     streakName = streakName.trim();
     if (streakName !== "" && streakName !== null) {
-      dispatch(addStreak({ title: streakName, streakCount: 2 }));
+      dispatch(addStreak({ title: streakName, streakCount: 0 }));
     }
     handleClose();
   }

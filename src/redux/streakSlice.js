@@ -23,8 +23,24 @@ const streakSlice = createSlice({
       };
       state.push(newStreak);
     },
+
+    increaseStreak: (state, action) => {
+      const id = action.payload.id;
+      state.map((streak) => streak.id === id && (streak.streakCount += 1));
+    },
+
+    decreaseStreak: (state, action) => {
+      const id = action.payload.id;
+      state.map((streak) => streak.id === id && (streak.streakCount -= 1));
+    },
+
+    resetStreak: (state, action) => {
+      const id = action.payload.id;
+      state.map((streak) => streak.id === id && (streak.streakCount = 0));
+    },
   },
 });
 
-export const { addStreak } = streakSlice.actions;
+export const { addStreak, increaseStreak, decreaseStreak, resetStreak } =
+  streakSlice.actions;
 export default streakSlice.reducer;

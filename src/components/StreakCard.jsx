@@ -1,33 +1,38 @@
-import { useState } from "react";
 import Button from "@mui/material/Button";
+import {
+  increaseStreak,
+  decreaseStreak,
+  resetStreak,
+} from "../redux/streakSlice";
+import { useDispatch } from "react-redux";
 
 export default function StreakCard({ keyy, name, count }) {
-  const [num, setNum] = useState(count);
+  const dispatch = useDispatch();
 
-  function handleIncrement() {
-    setNum((prevNum) => prevNum + 1);
+  function handleIncrement(id) {
+    dispatch(increaseStreak(id));
   }
-  function handleDecrement() {
-    setNum((prevNum) => prevNum - 1);
+  function handleDecrement(id) {
+    dispatch(decreaseStreak(id));
   }
-  function handleReset() {
-    setNum(0);
+  function handleReset(id) {
+    dispatch(resetStreak(id));
   }
 
   return (
     <>
-      <section key={keyy} id={keyy}>
+      <section key={keyy}>
         <div className="streak-card text-center">
           <h1>{name}</h1>
-          <h1 className="mb-4">{num}</h1>
+          <h1 className="mb-4">{count}</h1>
           <div className="btn-section">
-            <Button variant="contained" onClick={handleReset}>
+            <Button variant="contained" onClick={() => handleReset(keyy)}>
               &#x21bb;
             </Button>
-            <Button variant="contained" onClick={handleIncrement}>
+            <Button variant="contained" onClick={() => handleIncrement(keyy)}>
               +
             </Button>
-            <Button variant="contained" onClick={handleDecrement}>
+            <Button variant="contained" onClick={() => handleDecrement(keyy)}>
               -
             </Button>
           </div>
