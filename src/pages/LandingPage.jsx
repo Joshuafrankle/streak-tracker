@@ -30,6 +30,7 @@ export default function LandingPage() {
     const currentDate = Date.now();
     dispatch(resetStreak(currentDate));
     setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
