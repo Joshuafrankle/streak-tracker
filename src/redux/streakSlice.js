@@ -33,7 +33,8 @@ const streakSlice = createSlice({
       state.map(
         (streak) =>
           streak.id === id &&
-          ((streak.streakCount += 1), (streak.timeStamp = Date.now()))
+          (streak.streakCount += 1) &&
+          (streak.timeStamp = Date.now())
       );
     },
 
