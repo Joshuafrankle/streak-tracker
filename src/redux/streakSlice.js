@@ -32,7 +32,13 @@ const streakSlice = createSlice({
 
     decreaseStreak: (state, action) => {
       const id = action.payload;
-      state.map((streak) => streak.id === id && (streak.streakCount -= 1));
+      state.map(
+        (streak) =>
+          streak.id === id &&
+          (streak.streakCount === 0
+            ? (streak.streakCount = 0)
+            : (streak.streakCount -= 1))
+      );
     },
 
     resetStreak: (state, action) => {
