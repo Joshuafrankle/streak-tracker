@@ -5,13 +5,13 @@ const streakSlice = createSlice({
   initialState: [
     {
       id: 1,
-      timeStamp: "7/21/2021",
+      timeStamp: "8/21/2021",
       title: "Smallvill",
       streakCount: 5,
     },
     {
       id: 2,
-      timeStamp: "8/21/2021",
+      timeStamp: "9/21/2021",
       title: "Flash",
       streakCount: 3,
     },
@@ -57,7 +57,7 @@ const streakSlice = createSlice({
           Math.ceil(
             Math.abs(new Date(streak.timeStamp) - currentDate) /
               (1000 * 60 * 60)
-          ) === 24 && (streak.streakCount = 0)
+          ) >= 24 && (streak.streakCount = 0)
       );
     },
   },
