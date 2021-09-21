@@ -27,8 +27,7 @@ export default function LandingPage() {
   }
 
   useEffect(() => {
-    const currentDate = new Date().toLocaleDateString();
-    dispatch(resetStreak(currentDate));
+    dispatch(resetStreak());
     setTimeout(() => {
       setLoading(false);
     }, 3000);

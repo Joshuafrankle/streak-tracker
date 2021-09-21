@@ -49,11 +49,11 @@ const streakSlice = createSlice({
       );
     },
 
-    resetStreak: (state, action) => {
-      const current_date = action.payload;
+    resetStreak: (state) => {
+      const currentDate = new Date().toLocaleDateString();
       state.map(
         (streak) =>
-          Math.abs(streak.timeStamp - current_date) / (1000 * 60 * 60) == 24 &&
+          Math.abs(streak.timeStamp - currentDate) / (1000 * 60 * 60) == 24 &&
           (streak.streakCount = 0)
       );
     },
