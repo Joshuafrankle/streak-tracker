@@ -53,7 +53,7 @@ const streakSlice = createSlice({
       const current_date = action.payload;
       state.map(
         (streak) =>
-          Math.abs(streak.timeStamp - current_date) / (1000 * 60 * 60) === 24 &&
+          Math.abs(streak.timeStamp - current_date) / (1000 * 60 * 60) == 24 &&
           (streak.streakCount = 0)
       );
     },
