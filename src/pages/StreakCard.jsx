@@ -1,9 +1,5 @@
 import Button from "@mui/material/Button";
-import {
-  increaseStreak,
-  decreaseStreak,
-  resetStreak,
-} from "../redux/streakSlice";
+import { increaseStreak, decreaseStreak } from "../redux/streakSlice";
 import { useDispatch } from "react-redux";
 
 export default function StreakCard({ id, name, count }) {
@@ -16,12 +12,6 @@ export default function StreakCard({ id, name, count }) {
           <h1>{name}</h1>
           <h1 className="mb-4">{count}</h1>
           <div className="btn-section">
-            <Button
-              variant="contained"
-              onClick={() => dispatch(resetStreak(id))}
-            >
-              &#x21bb;
-            </Button>
             <Button
               variant="contained"
               onClick={() => dispatch(increaseStreak(id))}

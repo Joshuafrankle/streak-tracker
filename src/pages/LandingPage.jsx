@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addStreak } from "../redux/streakSlice";
+import { addStreak, resetStreak } from "../redux/streakSlice";
 import StreakCard from "./StreakCard";
 import StreakRec from "./StreakRec";
 
 export default function LandingPage() {
+  const [loading, setLoading] = useState(true);
+
   const dispatch = useDispatch();
 
   const streaks = useSelector((state) => state.streak);
@@ -25,52 +27,60 @@ export default function LandingPage() {
     handleClose();
   }
 
+  useEffect(() => {
+    const currentDate = Date.now();
+    dispatch(resetStreak(currentDate));
+    setLoading(false);
+  }, []);
+
   return (
     <>
-      <section className="d-flex justify-content-center mt-3">
-        <h1 className="streak-text">STREAK TRACKER</h1>
-      </section>
-
-      <StreakRec />
-
-      <section className="streak-cards m-5">
-        {streaks.map((streak) => (
-          <div key={streak.id}>
-            <StreakCard
-              id={streak.id}
-              name={streak.title}
-              count={streak.streakCount}
-            />
+      {loading ? (
+        <p>Loading</p>
+      ) : (
+        <main>
+          <section className="d-flex justify-content-center mt-3">
+            <h1 className="streak-text">STREAK TRACKER</h1>
+          </section>
+          <StreakRec />
+          <section className="streak-cards m-5">
+            {streaks.map((streak) => (
+              <div key={streak.id}>
+                <StreakCard
+                  id={streak.id}
+                  name={streak.title}
+                  count={streak.streakCount}
+                />
+              </div>
+            ))}
+          </section>
+          <section className="mx-2">
+            <div className="d-flex justify-content-end">
+              <Fab color="secondary" aria-label="add" onClick={handleShow}>
+                <AddIcon />
+              </Fab>
+            </div>
+          </section>
+          <div>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header>
+                <Modal.Title>Type your streak name</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <input type="text" id="streak_name" />
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant="primary" onClick={handleAdd}>
+                  Submit
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
-        ))}
-      </section>
-
-      <section className="mx-2">
-        <div className="d-flex justify-content-end">
-          <Fab color="secondary" aria-label="add" onClick={handleShow}>
-            <AddIcon />
-          </Fab>
-        </div>
-      </section>
-
-      <div>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header>
-            <Modal.Title>Type your streak name</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <input type="text" id="streak_name" />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleAdd}>
-              Submit
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
+        </main>
+      )}
     </>
   );
 }
