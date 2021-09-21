@@ -11,7 +11,6 @@ export default function LandingPage() {
   const [loading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
-
   const streaks = useSelector((state) => state.streak);
 
   const [show, setShow] = useState(false);
@@ -42,7 +41,9 @@ export default function LandingPage() {
           <section className="d-flex justify-content-center mt-3">
             <h1 className="streak-text">STREAK TRACKER</h1>
           </section>
+
           <StreakRec />
+
           <section className="streak-cards m-5">
             {streaks.map((streak) => (
               <div key={streak.id}>
@@ -54,6 +55,7 @@ export default function LandingPage() {
               </div>
             ))}
           </section>
+
           <section className="mx-2">
             <div className="d-flex justify-content-end">
               <Fab color="secondary" aria-label="add" onClick={handleShow}>
@@ -61,6 +63,7 @@ export default function LandingPage() {
               </Fab>
             </div>
           </section>
+
           <div>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header>
