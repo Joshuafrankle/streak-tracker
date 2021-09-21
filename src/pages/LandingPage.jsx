@@ -29,14 +29,16 @@ export default function LandingPage() {
   useEffect(() => {
     const currentDate = new Date().toLocaleDateString();
     dispatch(resetStreak(currentDate));
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       {loading ? (
-        <p>Loading</p>
+        <p className="full-vh d-flex align-justify-center fs-2">Loading...</p>
       ) : (
         <main>
           <section className="d-flex justify-content-center mt-3">
