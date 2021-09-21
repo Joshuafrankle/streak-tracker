@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addStreak } from "../redux/streakSlice";
-import StreakCard from "../components/StreakCard";
+import StreakCard from "./StreakCard";
 import StreakRec from "./StreakRec";
 
 export default function LandingPage() {

@@ -26,17 +26,17 @@ const streakSlice = createSlice({
     },
 
     increaseStreak: (state, action) => {
-      const id = action.payload.send_id;
+      const id = action.payload.id;
       state.map((streak) => streak.id === id && (streak.streakCount += 1));
     },
 
     decreaseStreak: (state, action) => {
-      const id = action.payload.send_id;
+      const id = action.payload.id;
       state.map((streak) => streak.id === id && (streak.streakCount -= 1));
     },
 
     resetStreak: (state, action) => {
-      const id = action.payload.send_id;
+      const id = action.payload.id;
       state.map((streak) => streak.id === id && (streak.streakCount = 0));
     },
   },
