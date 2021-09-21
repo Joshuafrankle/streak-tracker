@@ -27,7 +27,7 @@ export default function LandingPage() {
   }
 
   useEffect(() => {
-    const currentDate = Date.now();
+    const currentDate = new Date().toLocaleDateString();
     dispatch(resetStreak(currentDate));
     setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps

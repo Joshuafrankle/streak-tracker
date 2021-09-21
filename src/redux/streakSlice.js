@@ -5,13 +5,13 @@ const streakSlice = createSlice({
   initialState: [
     {
       id: 1,
-      timeStamp: 1632196678975,
+      timeStamp: "7/21/2021",
       title: "Smallvill",
       streakCount: 5,
     },
     {
       id: 2,
-      timeStamp: 1632196678975,
+      timeStamp: "8/21/2021",
       title: "Flash",
       streakCount: 3,
     },
@@ -21,7 +21,7 @@ const streakSlice = createSlice({
     addStreak: (state, action) => {
       const newStreak = {
         id: state.length + 1,
-        timeStamp: Date.now(),
+        timeStamp: new Date().toLocaleDateString(),
         title: action.payload.title,
         streakCount: action.payload.streakCount,
       };
@@ -34,7 +34,7 @@ const streakSlice = createSlice({
         (streak) =>
           streak.id === id &&
           (streak.streakCount += 1) &&
-          (streak.timeStamp = Date.now())
+          (streak.timeStamp = new Date().toLocaleDateString())
       );
     },
 
@@ -53,7 +53,8 @@ const streakSlice = createSlice({
       const current_date = action.payload;
       state.map(
         (streak) =>
-          streak.timeStamp - current_date === 1 && (streak.streakCount = 0)
+          Math.abs(streak.timeStamp - current_date) / (1000 * 60 * 60) === 1 &&
+          (streak.streakCount = 0)
       );
     },
   },
