@@ -9,9 +9,11 @@ export default function StreakRec() {
     streaks.map((stk) => stk.streakCount)
   );
 
-  const largestStreakTitle = streaks.map(
-    (stk) => stk.streakCount === largestStreak && stk.title
+  let largestStreakTitle = streaks.map((stk) =>
+    stk.streakCount === largestStreak ? stk.title : null
   );
+
+  largestStreakTitle = largestStreakTitle.join(", ");
 
   return (
     <>
