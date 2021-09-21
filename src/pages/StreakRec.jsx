@@ -4,16 +4,16 @@ import { Divider } from "@mui/material";
 export default function StreakRec() {
   const streaks = useSelector((state) => state.streak);
 
-  const largestStreak = Math.max.apply(
+  const longestStreak = Math.max.apply(
     Math,
     streaks.map((stk) => stk.streakCount)
   );
 
-  let largestStreakTitle = streaks.map((stk) =>
-    stk.streakCount === largestStreak ? stk.title : null
+  let longestStreakTitle = streaks.map((stk) =>
+    stk.streakCount === longestStreak ? stk.title : null
   );
 
-  largestStreakTitle = largestStreakTitle.join(", ");
+  longestStreakTitle = longestStreakTitle.join(", ");
 
   return (
     <>
@@ -21,7 +21,9 @@ export default function StreakRec() {
         <div className="text-center">
           <h2>Streak Record</h2>
           <h3>
-            Longest Streak is {largestStreak} for {largestStreakTitle}
+            <span className="text-muted">Longest Streak: </span>
+            {longestStreak} <span className="text-muted">| Name: </span>
+            {longestStreakTitle}
           </h3>
         </div>
         <div className="mt-5 d-flex">

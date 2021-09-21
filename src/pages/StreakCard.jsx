@@ -9,8 +9,8 @@ export default function StreakCard({ id, name, count }) {
     <>
       <section>
         <div className="streak-card text-center">
-          <h1>{name}</h1>
-          <h1 className="mb-4">{count}</h1>
+          <h2>{name}</h2>
+          <h2 className="mb-4">{count}</h2>
           <div className="btn-section">
             <Button
               variant="contained"

@@ -68,10 +68,10 @@ export default function LandingPage() {
           <div>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header>
-                <Modal.Title>Type your streak name</Modal.Title>
+                <Modal.Title>Enter the Series name</Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <input type="text" id="streak_name" />
+                <input className="form-control" type="text" id="streak_name" />
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
