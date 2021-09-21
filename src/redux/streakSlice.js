@@ -21,9 +21,9 @@ const streakSlice = createSlice({
     addStreak: (state, action) => {
       const newStreak = {
         id: state.length + 1,
+        timeStamp: Date.now(),
         title: action.payload.title,
         streakCount: action.payload.streakCount,
-        timeStamp: Date.now(),
       };
       state.push(newStreak);
     },
