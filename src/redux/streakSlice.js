@@ -50,11 +50,14 @@ const streakSlice = createSlice({
     },
 
     resetStreak: (state) => {
-      const currentDate = new Date().toLocaleDateString();
+      const theDate = new Date().toLocaleDateString();
+      const currentDate = new Date(theDate);
       state.map(
         (streak) =>
-          Math.abs(streak.timeStamp - currentDate) / (1000 * 60 * 60) == 24 &&
-          (streak.streakCount = 0)
+          Math.ceil(
+            Math.abs(new Date(streak.timeStamp) - currentDate) /
+              (1000 * 60 * 60)
+          ) === 24 && (streak.streakCount = 0)
       );
     },
   },
