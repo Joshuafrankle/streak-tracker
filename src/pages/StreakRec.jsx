@@ -32,6 +32,7 @@ export default function StreakRec() {
             )}
           </h3>
         </div>
+
         <div className="mt-5 d-flex">
           {streaks.map((streak) => (
             <div className="d-flex record-list" key={streak.id}>
