@@ -5,7 +5,7 @@ const streakSlice = createSlice({
   initialState: [
     {
       id: 1,
-      timeStamp: "8/21/2021",
+      timeStamp: "9/24/2021",
       title: "Smallvill",
       streakCount: 5,
     },
