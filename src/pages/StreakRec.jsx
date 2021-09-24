@@ -21,9 +21,15 @@ export default function StreakRec() {
         <div className="text-center">
           <h2>Streak Record</h2>
           <h3>
-            <span className="text-muted">Longest Streak: </span>
-            {longestStreak} <span className="text-muted">| Name: </span>
-            {longestStreakTitle}
+            {longestStreak === 0 ? (
+              <p>No Streak</p>
+            ) : (
+              <div>
+                <span className="text-muted">Longest Streak: </span>
+                {longestStreak} <span className="text-muted">| Name: </span>
+                {longestStreakTitle}
+              </div>
+            )}
           </h3>
         </div>
         <div className="mt-5 d-flex">
