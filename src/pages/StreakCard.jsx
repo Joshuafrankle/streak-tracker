@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import { increaseStreak, decreaseStreak } from "../redux/streakSlice";
+import { increaseStreak, decreaseStreak } from "../redux/slices/streakSlice";
 import { useDispatch } from "react-redux";
 
 export default function StreakCard({ id, name, count }) {

@@ -3,7 +3,7 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addStreak, resetStreak } from "../redux/streakSlice";
+import { addStreak, resetStreak } from "../redux/slices/streakSlice";
 import StreakCard from "./StreakCard";
 import StreakRec from "./StreakRec";
 
