@@ -9,6 +9,19 @@
   font-family: "Poppins";
 }
 
+/* Custom Scrollbar */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-track {
+  background-color: #1b1b1b;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #fafafa;
+  border-radius: 10px;
+}
+/* Custom Scrollbar */
+
 .full-vh {
   height: 100vh;
 }
