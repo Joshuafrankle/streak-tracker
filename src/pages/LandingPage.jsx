@@ -42,7 +42,7 @@ export default function LandingPage() {
         <p className="full-vh d-flex align-justify-center fs-2">Loading...</p>
       ) : (
         <main>
-          <h1>{firstName}</h1>
+          <h1 className="text-center my-4 text-muted">Welcome {firstName}!</h1>
           <section className="d-flex justify-content-center mt-3">
             <h1 className="streak-text">STREAK TRACKER</h1>
           </section>
