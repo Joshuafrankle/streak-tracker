@@ -61,12 +61,10 @@ export default function LandingPage() {
             ))}
           </section>
 
-          <section className="mx-2">
-            <div className="d-flex justify-content-end">
-              <Fab color="secondary" aria-label="add" onClick={handleShow}>
-                <AddIcon />
-              </Fab>
-            </div>
+          <section className="fab-button">
+            <Fab color="secondary" aria-label="add" onClick={handleShow}>
+              <AddIcon />
+            </Fab>
           </section>
 
           <div>
