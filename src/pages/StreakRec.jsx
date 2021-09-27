@@ -33,7 +33,7 @@ export default function StreakRec() {
           </h3>
         </div>
 
-        <div className="mt-5 d-flex">
+        <div className="mt-5 d-sm-flex">
           {streaks.map((streak) => (
             <div className="d-flex record-list" key={streak.id}>
               <h3 className="text-muted">
