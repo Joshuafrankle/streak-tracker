@@ -10,6 +10,10 @@
 }
 
 @media (max-width: 374px) {
+  .btn-section > * {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
   .streak-card {
     width: 80%;
   }
