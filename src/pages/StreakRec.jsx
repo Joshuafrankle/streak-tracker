@@ -12,7 +12,7 @@ export default function StreakRec() {
   let longestStreakTitle = streaks.map((stk) =>
     stk.streakCount === longestStreak ? stk.title : null
   );
-
+  longestStreakTitle = longestStreakTitle.filter((a) => a !== null);
   longestStreakTitle = longestStreakTitle.join(", ");
 
   return (
