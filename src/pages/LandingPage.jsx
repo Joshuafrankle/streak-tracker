@@ -4,18 +4,20 @@ import AddIcon from "@mui/icons-material/Add";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addStreak, resetStreak } from "../redux/slices/streakSlice";
+import { getUser } from "../redux/slices/userSlice";
 import StreakCard from "./StreakCard";
 import StreakRec from "./StreakRec";
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
-
-  const dispatch = useDispatch();
-  const streaks = useSelector((state) => state.streak);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const dispatch = useDispatch();
+
+  const streaks = useSelector((state) => state.streak);
+  const { firstName } = useSelector((state) => state.user);
 
   function handleAdd() {
     let streakName = document.getElementById("streak_name").value;
@@ -28,9 +30,9 @@ export default function LandingPage() {
 
   useEffect(() => {
     dispatch(resetStreak());
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    dispatch(getUser());
+
+    setLoading(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,6 +42,7 @@ export default function LandingPage() {
         <p className="full-vh d-flex align-justify-center fs-2">Loading...</p>
       ) : (
         <main>
+          <h1>{firstName}</h1>
           <section className="d-flex justify-content-center mt-3">
             <h1 className="streak-text">STREAK TRACKER</h1>
           </section>
