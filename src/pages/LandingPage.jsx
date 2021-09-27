@@ -49,7 +49,7 @@ export default function LandingPage() {
 
           <StreakRec />
 
-          <section className="streak-cards m-5">
+          <section className="grid-layout m-5">
             {streaks.map((streak) => (
               <div key={streak.id}>
                 <StreakCard
