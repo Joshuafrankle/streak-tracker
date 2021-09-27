@@ -60,3 +60,9 @@ h1 {
 .record-list > * {
   margin-right: 20px;
 }
+
+@media (max-width: 490px) {
+  .record-list > * {
+    margin-right: 10px;
+  }
+}
